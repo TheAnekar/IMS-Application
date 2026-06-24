@@ -78,7 +78,7 @@ def add():
         cursor = conn.cursor()
 
         query = """
-        INSERT INTO products (PRODUCT_NAME,CATEGORY,PRICE,QUANTITY)
+        INSERT INTO PRODUCTS (PRODUCT_NAME,CATEGORY,PRICE,QUANTITY)
         VALUES (%s,%s,%s,%s)
         """
 
@@ -105,7 +105,7 @@ def view_products():
 
         query = """
         SELECT *
-        FROM products
+        FROM PRODUCTS
         WHERE
             product_name LIKE %s
             OR category LIKE %s
@@ -121,7 +121,7 @@ def view_products():
     else:
 
         cursor.execute(
-            "SELECT * FROM products"
+            "SELECT * FROM PRODUCTS"
         )
 
     products = cursor.fetchall()
@@ -282,7 +282,7 @@ def dashboard():
     cursor.execute(
     """
         SELECT *
-        FROM products
+        FROM PRODUCTS
         WHERE quantity < 5
     """
     )
